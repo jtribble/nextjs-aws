@@ -10,6 +10,7 @@ pid="$(pm2 pid "${name}")"
 if [[ -z "${pid}" ]]; then
   (
     set -x
+    npm run build
     pm2 start --name "${name}" npm -- start
     pm2 save
   )
